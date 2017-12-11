@@ -52,11 +52,11 @@ public class Scheduler {
                         && (currentUtilisateur.getRoles().get(0).getNom().equals("ROLE_COMMERCIAL") || currentUtilisateur.getRoles().get(0).getNom().equals("ROLE_PROSPECTEUR") )) {
                     //On récupère l'objectif de la période précédente, on créé un nouvel objectif avec le même montant
                     Objectif lastObjectif = null;
-                     lastObjectif = objectifService.getLatestObjectifOfEmployeByIdAndPeriodeBeforeLast(currentUtilisateur.getEmploye());
+                     //lastObjectif = objectifService.getLatestObjectifOfEmployeByIdAndPeriodeBeforeLast(currentUtilisateur.getEmploye());
 
 
                     Objectif objectif = new Objectif();
-                    objectif.setMontant(lastObjectif.getMontant());//lastObjectif.getMontant());
+                    objectif.setMontant(60000);//lastObjectif.getMontant());//lastObjectif.getMontant());
                     objectif.setPeriode(periode);
                     objectif.setEmploye(currentUtilisateur.getEmploye());
                     currentUtilisateur.getEmploye().getObjectifs().add(objectif);
