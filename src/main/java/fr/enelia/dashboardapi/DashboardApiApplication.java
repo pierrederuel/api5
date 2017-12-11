@@ -34,7 +34,13 @@ public class DashboardApiApplication {
             private final Logger LOGGER = LoggerFactory.getLogger(DashboardApiApplication.class);
 			@Override
 			public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-				return new EneliaUserDetails(utilisateurService.getUtilisateurByUsernameAndActive(username.toLowerCase()));
+				LOGGER.info("USERNAME => " + username);
+				Utilisateur tempUser = utilisateurService.getUtilisateurByUsernameAndActive(username.toLowerCase());
+				LOGGER.info("USER => " + tempUser);
+				if (tempUser != null)
+					LOGGER.info("USER DETAILS => " + tempUser.getId() + " " + tempUser.isActive());
+
+				return new EneliaUserDetails(tempUser);
 			}
 		});
 	}
