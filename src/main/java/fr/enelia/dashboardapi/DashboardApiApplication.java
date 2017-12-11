@@ -5,6 +5,7 @@ import de.bytefish.fcmjava.http.client.IFcmClient;
 import fr.enelia.dashboardapi.config.FCMSettings;
 import fr.enelia.dashboardapi.entities.EneliaUserDetails;
 import fr.enelia.dashboardapi.services.UtilisateurService;
+import fr.enelia.dashboardapi.entities.Utilisateur;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
