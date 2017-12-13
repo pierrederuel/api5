@@ -37,10 +37,6 @@ public class DashboardApiApplication {
 			public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 				LOGGER.info("USERNAME => " + username);
 				Utilisateur tempUser = utilisateurService.getUtilisateurByUsernameAndActive(username.toLowerCase());
-				LOGGER.info("USER => " + tempUser);
-				if (tempUser != null)
-					LOGGER.info("USER DETAILS => " + tempUser.getId() + " " + tempUser.isActive());
-
 				return new EneliaUserDetails(tempUser);
 			}
 		});
