@@ -22,29 +22,33 @@ public class CommercialController {
 
     @PostMapping(value = "commercial")
     public Commercial createCommercial(@RequestBody Commercial commercial) {
-        LOGGER.error("createCommercial");
+        LOGGER.info("createCommercial");
         commercial = commercialService.createCommercial(commercial);
         return commercial;
     }
 
     @PutMapping("commercial")
     public Commercial updateCommercial(@RequestBody Commercial commercial) {
+        LOGGER.info("updateCommercial");
         commercial = commercialService.updateCommercial(commercial);
         return commercial;
     }
 
     @GetMapping(value = "commercial/{userId}")
     public Commercial getCommercialById(@PathVariable("userId") Long userId) {
+        LOGGER.info("getCommercialById");
         return commercialService.getCommercialById(userId);
     }
 
     @GetMapping(value = "commercial-stats/{userId}")
     public EmployeStats getCommercialAvecStatsById(@PathVariable("userId") Long userId) {
+        LOGGER.info("getCommercialAvecStatsById");
         return commercialService.getCommercialAvecStatsById(userId);
     }
 
     @GetMapping(value="commerciaux")
     public Iterable<Commercial> getAllCommerciaux() {
+        LOGGER.info("getAllCommerciaux");
         Iterable<Commercial> results = commercialService.getCommerciaux();
         Iterator<Commercial> itCommerciaux = results.iterator();
         while (itCommerciaux.hasNext()) {
